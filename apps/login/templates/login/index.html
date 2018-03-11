@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <h4>{{message}}</h4>
+        {% endfor %}
+    {% endif %}
+    <h1>Register</h1>
+    <form action="/process/reg" method="post">
+        {% csrf_token %}
+        First Name: <input type="text" name="first_name"><br>
+        Last Name: <input type="text" name="last_name"><br>
+        Email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password"><br>
+        Confirm Pw: <input type="password" name="password_conf"><br>
+        <input type="submit" value="Register">
+    </form>
+    <h1>login</h1>
+    <form action="/process/log" method="post">
+        {% csrf_token %}
+        Email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
